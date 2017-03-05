@@ -15,7 +15,7 @@ class UserRegistrationForm(UserCreationForm):
         'Jan', 'Feb', 'Mar', 'Apr', 'May', 'June',
         'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'
     ]
-    MONTH_CHOICES = list(enumerate(MONTH_ABBREVIATIONS))
+    MONTH_CHOICES = list(enumerate(MONTH_ABBREVIATIONS, 1))
     YEAR_CHOICES = [(i, i) for i in xrange(2017, 2038)]
     credit_card_number = forms.CharField(label='Credit card number')
     cvv = forms.CharField(label='Security Code (CVV)')

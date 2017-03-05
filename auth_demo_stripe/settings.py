@@ -135,5 +135,5 @@ STATICFILES_DIR = (
 )
 
 # Stripe environment variables
-STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE', 'pk_test_fmXKA7Qyqnz4IeQz7ansiN0M')
-STRIPE_SECRET = os.getenv('STRIPE_SECRET', 'sk_test_9MlTyqRQsVlx92ACVq3h0St7')
+STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE', 'pk_test_DsVPPYiawJW0vc7GFyP0Axh9')
+STRIPE_SECRET = os.getenv('STRIPE_SECRET', 'sk_test_M3O7jq7NADitTy3WDzawuNKl')

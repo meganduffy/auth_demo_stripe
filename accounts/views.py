@@ -41,6 +41,9 @@ def register(request):
                     messages.error(request, "We were unable to take a payment with that card!")
             except stripe.error.CardError, e:
                 messages.error(request, "Your card was declined!")
+
+        else:
+            messages.error(request, "Form not valid")
     else:
         today = datetime.date.today()
         form = UserRegistrationForm()
