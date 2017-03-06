@@ -12,6 +12,7 @@ from __future__ import unicode_literals
 from django.contrib.auth.models import AbstractUser, UserManager
 from django.db import models
 from django.utils import timezone
+import datetime
 
 
 class AccountUserManager(UserManager):
@@ -38,9 +39,10 @@ class AccountUserManager(UserManager):
 class User(AbstractUser):
     # Now that we've abstracted this class we can add any number
     # Of custom attributes to our user class
-    last_login = models.DateTimeField(default=timezone.now)
-    previous_login = models.DateTimeField(default=timezone.now)
     stripe_id = models.CharField(max_length=40, default='')
+    last_login = models.DateTimeField(default=timezone.now)
+    m = datetime.datetime(year=2016, month=01, day=01)
+    previous_login = models.DateTimeField(default=m)
     objects = AccountUserManager()
 
 

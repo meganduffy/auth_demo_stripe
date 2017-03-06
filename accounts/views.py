@@ -2,7 +2,6 @@
 PREVIOUS_LOGIN still just displays current time.
 """
 from django.contrib import messages, auth
-from accounts.forms import UserRegistrationForm
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, redirect
 from django.template.context_processors import csrf
@@ -27,6 +26,7 @@ def register(request):
                     description=form.cleaned_data['email'],
                     card=form.cleaned_data['stripe_id']
                 )
+                print customer
                 if customer.paid:
                     form.save()
                     user = auth.authenticate(email=request.POST.get('email'),
@@ -39,6 +39,7 @@ def register(request):
                         messages.error(request, "unable to log you in at this time!")
                 else:
                     messages.error(request, "We were unable to take a payment with that card!")
+
             except stripe.error.CardError, e:
                 messages.error(request, "Your card was declined!")
 
